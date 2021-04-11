@@ -5,7 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"paulfdunn/osh/runtimeh"
+	"github.com/paulfdunn/osh/runtimeh"
 
 	_ "github.com/mattn/go-sqlite3"
 )

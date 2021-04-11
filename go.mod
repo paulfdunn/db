@@ -1,4 +1,4 @@
-module paulfdunn/db
+module github.com/paulfdunn/db
 
 go 1.16
 

@@ -5,7 +5,7 @@ package kvs
 import (
 	"encoding/json"
 
-	"paulfdunn/osh/runtimeh"
+	"github.com/paulfdunn/osh/runtimeh"
 )
 
 // Deserialize deserializes an object from the KVS.

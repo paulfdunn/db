@@ -6,7 +6,8 @@ import (
 	"fmt"
 
 	"paulfdunn/db"
-	"paulfdunn/osh/runtimeh"
+
+	"github.com/paulfdunn/osh/runtimeh"
 )
 
 // KVS is an instance for key/value storage.
