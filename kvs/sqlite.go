@@ -5,8 +5,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"paulfdunn/db"
-
+	"github.com/paulfdunn/db"
 	"github.com/paulfdunn/osh/runtimeh"
 )
 
