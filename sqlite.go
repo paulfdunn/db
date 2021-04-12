@@ -3,7 +3,6 @@ package db
 
 import (
 	"database/sql"
-	"fmt"
 
 	"github.com/paulfdunn/osh/runtimeh"
 
@@ -13,7 +12,7 @@ import (
 func Open(dataSourceName string) (*sql.DB, error) {
 	db, err := sql.Open("sqlite3", dataSourceName)
 	if err != nil {
-		err = fmt.Errorf("could not open db file, error: %v", err)
+		err = runtimeh.SourceInfoError("could not open db file", err)
 		return nil, runtimeh.SourceInfoError("", err)
 	}
 

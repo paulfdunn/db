@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+
+	"github.com/paulfdunn/osh/runtimeh"
 )
 
 type kvPair struct {
@@ -157,7 +159,7 @@ func TestGetNegative(t *testing.T) {
 func rowCount(db *sql.DB, table string) (int, error) {
 	rows, err := sqlQuery(db, fmt.Sprintf("SELECT * FROM %s;", table))
 	if err != nil {
-		return 0, fmt.Errorf("getting all rows, error: %v", err)
+		return 0, runtimeh.SourceInfoError("getting all rows", err)
 	}
 	count := 0
 	for rows.Next() {
