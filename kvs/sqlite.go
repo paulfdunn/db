@@ -108,6 +108,27 @@ func (kvs KVS) Get(key string) ([]byte, error) {
 	return value, nil
 }
 
+// Keys returns all keys in the store.
+func (kvs KVS) Keys() ([]string, error) {
+	if kvs.dbConn == nil {
+		return nil, fmt.Errorf("%s kvs db is nil", runtimeh.SourceInfo())
+	}
+
+	rows, err := sqlQuery(kvs.dbConn, fmt.Sprintf("SELECT key FROM %s;", kvs.table))
+	if err != nil {
+		return nil, runtimeh.SourceInfoError("getting all keys", err)
+	}
+	keys := []string{}
+	for rows.Next() {
+		var key string
+		if err := rows.Scan(&key); err != nil {
+			return nil, runtimeh.SourceInfoError("scanning all keys", err)
+		}
+		keys = append(keys, key)
+	}
+	return keys, nil
+}
+
 // Set sets a value for the specified key in the KVS.
 func (kvs KVS) Set(key string, value []byte) error {
 	if kvs.dbConn == nil {
