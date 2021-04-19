@@ -1,4 +1,6 @@
 // Package db provides a kvs for sqlite3.
+// db is hosted at https://github.com/paulfdunn/db; please see the repo
+// for more information
 package db
 
 import (
